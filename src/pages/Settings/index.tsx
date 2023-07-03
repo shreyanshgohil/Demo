@@ -3,6 +3,7 @@ import { userColumns, userDataSource } from 'constants/DATA';
 import { SettingsLayout } from 'layout';
 import { useState } from 'react';
 import styles from './index.module.scss';
+import { SideDrawerWrapper } from 'components/global';
 
 // settings page
 const Settings = () => {
@@ -18,24 +19,27 @@ const Settings = () => {
 
   // JSX
   return (
-    <div className={styles.settings}>
-      <SettingsLayout>
-        <div className={styles.settings__body}>
-          <div className={styles['settings__body--add-info']}>
-            <AddInfo />
+    <>
+      <div className={styles.settings}>
+        <SettingsLayout>
+          <div className={styles.settings__body}>
+            <div className={styles['settings__body--add-info']}>
+              <AddInfo />
+            </div>
+            <div className={styles['settings__body--table']}>
+              <Table
+                userDataSource={data}
+                userColumns={userColumns}
+                paginationChangeHandler={paginationChangeHandler}
+                currentPage={currentPage}
+                totalRecords={userDataSource.length}
+              />
+            </div>
           </div>
-          <div className={styles['settings__body--table']}>
-            <Table
-              userDataSource={data}
-              userColumns={userColumns}
-              paginationChangeHandler={paginationChangeHandler}
-              currentPage={currentPage}
-              totalRecords={userDataSource.length}
-            />
-          </div>
-        </div>
-      </SettingsLayout>
-    </div>
+        </SettingsLayout>
+      </div>
+      <SideDrawerWrapper />
+    </>
   );
 };
 
