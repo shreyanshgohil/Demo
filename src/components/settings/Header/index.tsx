@@ -1,4 +1,3 @@
-import { CloseOutlined } from '@ant-design/icons';
 import { Layout } from 'antd';
 import styles from './index.module.scss';
 
@@ -18,13 +17,7 @@ const Header = () => {
           padding: '10px',
         }}
       >
-        <p className={styles.header__title}>Settings</p>
-        <CloseOutlined
-          style={{
-            fontSize: '2rem',
-            cursor: 'pointer',
-          }}
-        />
+        <p className={styles.header__title}>Dashboard</p>
       </Header>
     </div>
   );

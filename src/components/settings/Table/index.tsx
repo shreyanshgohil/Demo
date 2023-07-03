@@ -1,13 +1,15 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { FC, useState } from 'react';
 import { Table } from 'antd';
+import { FC } from 'react';
+import styles from './index.module.scss';
+
 interface TableProps {
   userColumns: any;
   userDataSource: any;
 }
 const index: FC<TableProps> = ({ userColumns, userDataSource }) => {
   return (
-    <div>
+    <div className={styles.table}>
       <Table
         dataSource={userDataSource}
         columns={userColumns}

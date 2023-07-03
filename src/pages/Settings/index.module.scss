@@ -1,0 +1,13 @@
+.settings {
+  height: 100vh;
+  &__body {
+    &--table {
+      margin-bottom: 2.5rem;
+      background: white;
+    }
+    &--pagination {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+  }
+}
