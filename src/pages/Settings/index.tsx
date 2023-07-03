@@ -1,5 +1,4 @@
-import { Pagination } from 'antd';
-import { Table } from 'components/settings/';
+import { AddInfo, Table } from 'components/settings';
 import { userColumns, userDataSource } from 'constants/DATA';
 import { SettingsLayout } from 'layout';
 import { useState } from 'react';
@@ -12,9 +11,8 @@ const Settings = () => {
   const [data, setData] = useState(userDataSource.slice(0, 10));
 
   // Handle the pagination for the table
-  const paginationChangeHandler = (pageNo: number, paginationSize: number) => {
+  const paginationChangeHandler = (pageNo: number) => {
     setCurrentPage(pageNo);
-    const data = userDataSource;
     setData(userDataSource.slice((pageNo - 1) * 10, pageNo * 10));
   };
 
@@ -23,14 +21,16 @@ const Settings = () => {
     <div className={styles.settings}>
       <SettingsLayout>
         <div className={styles.settings__body}>
-          <div className={styles['settings__body--table']}>
-            <Table userDataSource={data} userColumns={userColumns} />
+          <div className={styles['settings__body--add-info']}>
+            <AddInfo />
           </div>
-          <div className={styles['settings__body--pagination']}>
-            <Pagination
-              total={userDataSource.length}
-              current={currentPage}
-              onChange={paginationChangeHandler}
+          <div className={styles['settings__body--table']}>
+            <Table
+              userDataSource={data}
+              userColumns={userColumns}
+              paginationChangeHandler={paginationChangeHandler}
+              currentPage={currentPage}
+              totalRecords={userDataSource.length}
             />
           </div>
         </div>

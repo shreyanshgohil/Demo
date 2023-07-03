@@ -13,6 +13,7 @@ const Sidebar = () => {
   // Inits
   const { Sider } = Layout;
 
+  // Dummy menu items
   const items2: MenuProps['items'] = [
     UserOutlined,
     LaptopOutlined,
